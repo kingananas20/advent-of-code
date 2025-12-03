@@ -1,7 +1,7 @@
 use std::fs;
 
 fn main() {
-    let mut input = fs::read_to_string("inputs/day2.txt").unwrap();
+    let mut input = fs::read_to_string("inputs/day02.txt").unwrap();
     input = input.strip_suffix("\n").unwrap().to_string();
     let ranges = input.split(",");
 

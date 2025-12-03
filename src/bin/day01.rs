@@ -1,7 +1,7 @@
 use std::fs;
 
 fn main() {
-    let input = fs::read_to_string("inputs/day1.txt").unwrap();
+    let input = fs::read_to_string("inputs/day01.txt").unwrap();
 
     let mut dial: u8 = 50;
     let mut password = 0;
