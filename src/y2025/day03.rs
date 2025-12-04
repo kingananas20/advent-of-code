@@ -1,9 +1,5 @@
-use std::fs;
-
-const BATTERIES: usize = 12;
-
-fn main() {
-    let input = fs::read_to_string("inputs/day03.txt").unwrap();
+pub fn day03(input: String, part2: bool) {
+    let batteries: usize = if !part2 { 2 } else { 12 };
     let mut joltage = 0;
 
     for line in input.lines() {
@@ -14,14 +10,14 @@ fn main() {
 
         let mut start = 0;
 
-        for i in 0..BATTERIES {
-            let end = digits.len() - (BATTERIES - i) + 1;
+        for i in 0..batteries {
+            let end = digits.len() - (batteries - i) + 1;
 
             let (index, number) = digits[start..end].iter().copied().first_max().unwrap();
 
             start += index + 1;
 
-            joltage += (number as u64) * 10u64.pow((BATTERIES - i - 1) as u32);
+            joltage += (number as u64) * 10u64.pow((batteries - i - 1) as u32);
         }
     }
 

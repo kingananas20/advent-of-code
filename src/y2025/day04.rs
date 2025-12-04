@@ -1,7 +1,4 @@
-use std::fs;
-
-fn main() {
-    let input = fs::read_to_string("inputs/day04.txt").unwrap();
+pub fn day04(input: String, part2: bool) {
     let mut storage: Vec<Vec<u8>> = Vec::new();
     for line in input.lines() {
         let line = line.chars().map(|c| if c == '@' { 1 } else { 0 }).collect();
@@ -47,7 +44,7 @@ fn main() {
             }
         }
 
-        if paper_rolls - prev_rolls == 0 {
+        if paper_rolls - prev_rolls == 0 || !part2 {
             break;
         }
         prev_rolls = paper_rolls;
