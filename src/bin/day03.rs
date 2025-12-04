@@ -34,8 +34,9 @@ trait IteratorExt: Iterator<Item = u8> + Sized {
         let mut max_idx: usize = 0;
         let mut idx: usize = 0;
 
+        #[allow(clippy::explicit_counter_loop)]
         for val in self {
-            if max_val.map_or(true, |m| val > m) {
+            if max_val.is_none_or(|m| val > m) {
                 max_val = Some(val);
                 max_idx = idx;
             }
