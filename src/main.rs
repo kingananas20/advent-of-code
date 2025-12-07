@@ -22,9 +22,10 @@ enum Part {
 
 fn main() {
     let cli = Cli::parse();
+    println!("{cli:?}");
     let year: &str = &format!("20{:02}", cli.year);
     let day: &str = &format!("{:02}", cli.day);
-    let part2 = cli.part == Part::Part1;
+    let part2 = cli.part == Part::Part2;
 
     let input = fs::read_to_string(format!("inputs/{year}/day{day}.txt"))
         .expect("Forgot to add the input or wrong filename");
@@ -34,7 +35,8 @@ fn main() {
             "01" => y2025::day01,
             "02" => y2025::day02,
             "03" => y2025::day03,
-            "04" => y2025::day04
+            "04" => y2025::day04,
+            "05" => y2025::day05
         },
         "2015" => {
             "01" => y2015::day01
